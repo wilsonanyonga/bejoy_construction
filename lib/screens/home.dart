@@ -52,6 +52,7 @@ class Home extends StatelessWidget {
           //   ),
           // ),
         ),
+        const SizedBox(height: 20),
         const TextField(
           decoration: InputDecoration(
             filled: true,

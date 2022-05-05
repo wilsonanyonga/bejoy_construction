@@ -53,40 +53,66 @@ class Home extends StatelessWidget {
           // ),
         ),
         const SizedBox(height: 20),
+        const Text(
+          'Project Name: GLUK',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+        const SizedBox(height: 20),
+        const Text(
+          'Project Cost: \$1,000,000',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+        const SizedBox(height: 20),
+        const Text(
+          'Materials Used',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+        const SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             for (var i = 0; i < 3; i++)
               Container(
                 width: 100,
-                height: 100,
+                // height: 100,
                 // color: Colors.red,
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.red,
                 ),
-                child: Center(
-                  child: Column(
-                    children: const [
-                      SizedBox(height: 15),
-                      Text(
-                        '1',
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
+                child: Column(
+                  children: const [
+                    SizedBox(height: 15),
+                    Text(
+                      '1',
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
                       ),
-                      Text(
-                        'Cement',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
+                    ),
+                    Text(
+                      'Cement',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
           ],
@@ -98,13 +124,14 @@ class Home extends StatelessWidget {
             for (var i = 0; i < 3; i++)
               Container(
                 width: 100,
-                height: 100,
+                // height: ,
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.red,
                 ),
                 // color: Colors.red,
-                child: Center(
+                child: SingleChildScrollView(
                   child: Column(
                     children: const [
                       SizedBox(height: 15),
@@ -117,19 +144,21 @@ class Home extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Gypsum Boards  (1kg)',
+                        'Gypsum Boards (1 kg) fgsfgs fd dfsg sdf g',
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
                       ),
+                      SizedBox(height: 15),
                     ],
                   ),
                 ),
               ),
           ],
         ),
+        const Text('data'),
         const SizedBox(height: 20),
       ],
     );

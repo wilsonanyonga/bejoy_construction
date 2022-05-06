@@ -100,6 +100,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 // color: Colors.blue,
               ),
               child: Text(''),
+              // child: Stack(
+              //   children: const [
+              //     Text('some 1'),
+              //     Align(
+              //       alignment: Alignment.bottomCenter,
+              //       child: Text('Bejoy Admin',
+              //           style: TextStyle(
+              //               fontSize: 20, fontWeight: FontWeight.bold)),
+              //     ),
+              //   ],
+              // ),
             ),
             Container(
                 alignment: Alignment.center,
@@ -110,8 +121,9 @@ class _MyHomePageState extends State<MyHomePage> {
             newMethodMenu(context, 'Stock', Icons.storage_rounded),
             newMethodMenu(context, 'Staff', Icons.people),
             newMethodMenu(context, 'Receipts', Icons.receipt_long_outlined),
-            newMethodMenu(context, 'Register', Icons.app_registration),
+            newMethodMenu(context, 'Daily Register', Icons.app_registration),
             newMethodMenu(context, 'Tools', Icons.settings_applications),
+            // const Spacer(),
             newMethodMenu(
                 context, 'Materials Use', Icons.settings_applications),
           ],
@@ -129,33 +141,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               child: Text('Bejoy Projects'),
             ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Project GLUK'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Project Oloitoktok'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.add_circle),
-              title: const Text('Add Project'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
-              },
-            ),
+            newMethodMenu(context, 'GLUK', Icons.home),
+            newMethodMenu(context, 'Oloitoktok', Icons.home),
+            newMethodMenu(context, 'Add Project', Icons.add_circle),
           ],
         ),
       ),

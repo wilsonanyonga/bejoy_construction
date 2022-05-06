@@ -76,89 +76,61 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Center(child: Text(widget.title)),
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              icon: const Icon(Icons.settings),
+              onPressed: () => Scaffold.of(context).openEndDrawer(),
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            ),
+          ),
+        ],
       ),
       drawer: Drawer(
+        // backgroundColor: Colors.blue[100],
         child: ListView(
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                image: DecorationImage(
+                  image: AssetImage('assets/images/logo.png'),
+                ),
+                // color: Colors.blue,
               ),
-              child: Text('Drawer Header'),
+              child: Text(''),
             ),
-            ListTile(
-              title: const Text('Home'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Stock'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Staff'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Receipts'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Register'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Tools'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Usage'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
-              },
-            ),
+            Container(
+                alignment: Alignment.center,
+                child: const Text('Bejoy Admin',
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
+            newMethodMenu(context, 'Home', Icons.home),
+            newMethodMenu(context, 'Stock', Icons.storage_rounded),
+            newMethodMenu(context, 'Staff', Icons.people),
+            newMethodMenu(context, 'Receipts', Icons.receipt_long_outlined),
+            newMethodMenu(context, 'Register', Icons.app_registration),
+            newMethodMenu(context, 'Tools', Icons.settings_applications),
+            newMethodMenu(
+                context, 'Materials Use', Icons.settings_applications),
           ],
         ),
       ),
+
       endDrawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
-            // const DrawerHeader(
-            //   decoration: BoxDecoration(
-            //     color: Colors.blue,
-            //   ),
-            //   child: Text('Drawer Header'),
-            // ),
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: Text('Bejoy Projects'),
+            ),
             ListTile(
+              leading: const Icon(Icons.home),
               title: const Text('Project GLUK'),
               onTap: () {
                 // Update the state of the app.
@@ -167,6 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
+              leading: const Icon(Icons.home),
               title: const Text('Project Oloitoktok'),
               onTap: () {
                 // Update the state of the app.
@@ -175,6 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
+              leading: const Icon(Icons.add_circle),
               title: const Text('Add Project'),
               onTap: () {
                 // Update the state of the app.
@@ -192,6 +166,29 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  ListTile newMethodMenu(
+    BuildContext context,
+    String details,
+    IconData icon,
+  ) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(
+        details,
+        style: const TextStyle(
+          fontSize: 20,
+          // fontWeight: FontWeight.bold,
+          color: Colors.black,
+        ),
+      ),
+      onTap: () {
+        // Update the state of the app.
+        // ...
+        Navigator.pop(context);
+      },
     );
   }
 }

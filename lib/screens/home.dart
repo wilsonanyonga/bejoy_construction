@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
-  var counter;
+  final counter;
 
-  Home(int this.counter, {Key? key}) : super(key: key);
+  const Home(int this.counter, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:bejoy_construction/widgets/menu_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:go_router/go_router.dart';
 
 class Stock extends StatelessWidget {
@@ -87,11 +88,11 @@ class Stock extends StatelessWidget {
                 icon: Icons.picture_in_picture_alt,
                 routeMe: '/pictures'),
             // const Spacer(),
-            NewMethodMenuWidget(
-                context: context,
-                details: 'Materials Use',
-                icon: Icons.settings_applications,
-                routeMe: '/materials'),
+            // NewMethodMenuWidget(
+            //     context: context,
+            //     details: 'Materials Use',
+            //     icon: Icons.settings_applications,
+            //     routeMe: '/materials'),
           ],
         ),
       ),
@@ -124,12 +125,83 @@ class Stock extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          const Text('Stock'),
-          TextButton(
-              onPressed: () => context.go('/'), child: const Text('data'))
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
+            // const Center(
+            //     child: Text('Current Stock',
+            //         style: TextStyle(
+            //           fontSize: 20,
+            //           fontWeight: FontWeight.bold,
+            //           color: Colors.black,
+            //         ))),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: BorderSide.none,
+                    // borderSide: const BorderSide(
+                    //   color: Colors.green,
+                    //   width: 1.0,
+                    // ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(
+                      color: Colors.blue,
+                      width: 1.0,
+                    ),
+                  ),
+                  filled: true,
+                  fillColor: Colors.blue.shade100,
+                  // input border should appear when data is being modified
+                  // border: OutlineInputBorder(
+                  //   borderRadius: BorderRadius.circular(10.0),
+                  // ),
+                  labelText: 'Search',
+                  prefixIcon: const Icon(Icons.search),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            ListView(
+              shrinkWrap: true,
+              children: [
+                for (var i = 0; i < 16; i++)
+                  Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(62, 82, 158, 154),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    margin: const EdgeInsets.all(10),
+                    child: const ListTile(
+                      leading: Icon(Icons.ac_unit_rounded),
+                      title: Text('Cement'),
+                      subtitle: Text('# 200'),
+                      // trailing: Icon(Icons.edit),
+                      // tileColor: Color.fromARGB(62, 82, 158, 154),
+                    ),
+                  )
+              ],
+            ),
+            Container(
+              margin: const EdgeInsets.all(10),
+              child: const ListTile(
+                leading: Icon(Icons.ac_unit_rounded),
+                title: Text('Item 1'),
+                subtitle: Text('Description'),
+                trailing: Text('Quantity'),
+                tileColor: Colors.grey,
+              ),
+            ),
+            TextButton(
+                onPressed: () => context.go('/'), child: const Text('data'))
+          ],
+        ),
       ),
     );
   }

@@ -73,7 +73,7 @@ class Home extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           const Text(
-            'Materials Used',
+            'Materials Bought',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,

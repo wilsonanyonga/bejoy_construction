@@ -1,9 +1,11 @@
+import 'package:bejoy_construction/screens/daily_register.dart';
 import 'package:bejoy_construction/screens/home.dart';
 import 'package:bejoy_construction/screens/material_use.dart';
 import 'package:bejoy_construction/screens/pictures.dart';
 import 'package:bejoy_construction/screens/receipts.dart';
 import 'package:bejoy_construction/screens/staff.dart';
 import 'package:bejoy_construction/screens/stock.dart';
+import 'package:bejoy_construction/screens/tools.dart';
 import 'package:bejoy_construction/widgets/menu_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -59,11 +61,12 @@ class MyApp extends StatelessWidget {
       ),
       GoRoute(
         path: '/daily_register',
-        builder: (BuildContext context, GoRouterState state) => const Receipt(),
+        builder: (BuildContext context, GoRouterState state) =>
+            const RegisterDaily(),
       ),
       GoRoute(
         path: '/tools',
-        builder: (BuildContext context, GoRouterState state) => const Receipt(),
+        builder: (BuildContext context, GoRouterState state) => const Tools(),
       ),
       GoRoute(
         path: '/pictures',

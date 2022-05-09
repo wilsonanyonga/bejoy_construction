@@ -2,6 +2,7 @@ import 'package:bejoy_construction/widgets/menu_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:go_router/go_router.dart';
+import 'package:timelines/timelines.dart';
 
 class Pictures extends StatelessWidget {
   const Pictures({Key? key}) : super(key: key);
@@ -168,26 +169,73 @@ class Pictures extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            ListView(
-              shrinkWrap: true,
-              children: [
-                for (var i = 0; i < 16; i++)
-                  Container(
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(62, 82, 158, 154),
-                      borderRadius: BorderRadius.circular(10),
+            TimelineTile(
+              nodePosition: 0.2,
+              oppositeContents: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text('18/4/2022'),
+              ),
+              contents: Column(
+                children: [
+                  Card(
+                    child: Container(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset('assets/images/logo.png'),
                     ),
-                    margin: const EdgeInsets.all(10),
-                    child: const ListTile(
-                      leading: Icon(Icons.ac_unit_rounded),
-                      title: Text('Cement'),
-                      subtitle: Text('# 200'),
-                      // trailing: Icon(Icons.edit),
-                      // tileColor: Color.fromARGB(62, 82, 158, 154),
-                    ),
-                  )
-              ],
+                  ),
+                ],
+              ),
+              node: const TimelineNode(
+                indicator: DotIndicator(),
+                startConnector: SolidLineConnector(),
+                endConnector: SolidLineConnector(),
+              ),
             ),
+            TimelineTile(
+              nodePosition: 0.2,
+              oppositeContents: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text('19/4/2022'),
+              ),
+              contents: Column(
+                children: [
+                  Card(
+                    child: Container(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset('assets/images/logo.png'),
+                    ),
+                  ),
+                ],
+              ),
+              node: const TimelineNode(
+                indicator: DotIndicator(),
+                startConnector: SolidLineConnector(),
+                endConnector: SolidLineConnector(),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            // ListView(
+            //   shrinkWrap: true,
+            //   children: [
+            //     for (var i = 0; i < 16; i++)
+            //       Container(
+            //         decoration: BoxDecoration(
+            //           color: const Color.fromARGB(62, 82, 158, 154),
+            //           borderRadius: BorderRadius.circular(10),
+            //         ),
+            //         margin: const EdgeInsets.all(10),
+            //         child: const ListTile(
+            //           leading: Icon(Icons.ac_unit_rounded),
+            //           title: Text('Cement'),
+            //           subtitle: Text('# 200'),
+            //           // trailing: Icon(Icons.edit),
+            //           // tileColor: Color.fromARGB(62, 82, 158, 154),
+            //         ),
+            //       )
+            //   ],
+            // ),
             Container(
               margin: const EdgeInsets.all(10),
               child: const ListTile(

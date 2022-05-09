@@ -43,42 +43,53 @@ class MyApp extends StatelessWidget {
   final GoRouter _router = GoRouter(
     routes: <GoRoute>[
       GoRoute(
-        path: '/',
-        builder: (BuildContext context, GoRouterState state) =>
-            const MyHomePage(),
-      ),
-      GoRoute(
-        path: '/stock',
-        builder: (BuildContext context, GoRouterState state) => const Stock(),
-      ),
-      GoRoute(
-        path: '/staff',
-        builder: (BuildContext context, GoRouterState state) => const Staff(),
-      ),
-      GoRoute(
-        path: '/receipts',
-        builder: (BuildContext context, GoRouterState state) => const Receipt(),
-      ),
-      GoRoute(
-        path: '/daily_register',
-        builder: (BuildContext context, GoRouterState state) =>
-            const RegisterDaily(),
-      ),
-      GoRoute(
-        path: '/tools',
-        builder: (BuildContext context, GoRouterState state) => const Tools(),
-      ),
-      GoRoute(
-        path: '/pictures',
-        builder: (BuildContext context, GoRouterState state) =>
-            const Pictures(),
-      ),
-      GoRoute(
-        path: '/materials',
-        builder: (BuildContext context, GoRouterState state) =>
-            const MaterialUse(),
-      ),
+          path: '/',
+          builder: (BuildContext context, GoRouterState state) =>
+              const MyHomePage(),
+          routes: [
+            GoRoute(
+              path: 'home',
+              builder: (BuildContext context, GoRouterState state) =>
+                  const MyHomePage(),
+            ),
+            GoRoute(
+              path: 'stock',
+              builder: (BuildContext context, GoRouterState state) =>
+                  const Stock(),
+            ),
+            GoRoute(
+              path: 'staff',
+              builder: (BuildContext context, GoRouterState state) =>
+                  const Staff(),
+            ),
+            GoRoute(
+              path: 'receipts',
+              builder: (BuildContext context, GoRouterState state) =>
+                  const Receipt(),
+            ),
+            GoRoute(
+              path: 'daily_register',
+              builder: (BuildContext context, GoRouterState state) =>
+                  const RegisterDaily(),
+            ),
+            GoRoute(
+              path: 'tools',
+              builder: (BuildContext context, GoRouterState state) =>
+                  const Tools(),
+            ),
+            GoRoute(
+              path: 'pictures',
+              builder: (BuildContext context, GoRouterState state) =>
+                  const Pictures(),
+            ),
+            GoRoute(
+              path: 'materials',
+              builder: (BuildContext context, GoRouterState state) =>
+                  const MaterialUse(),
+            ),
+          ]),
     ],
+    // initialLocation: '/home',
   );
 
   // Widget build(BuildContext context) {
@@ -218,11 +229,6 @@ class MyHomePage extends StatelessWidget {
                 icon: Icons.picture_in_picture_alt,
                 routeMe: '/pictures'),
             // const Spacer(),
-            NewMethodMenuWidget(
-                context: context,
-                details: 'Materials Use',
-                icon: Icons.settings_applications,
-                routeMe: '/materials'),
           ],
         ),
       ),

@@ -170,66 +170,75 @@ class Receipt extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SizedBox(
-                  width: 100,
-                  // height: 100,
-                  child: Column(
-                    children: [
-                      Image.asset('assets/images/logo.png'),
-                      const Text('data'),
-                      const Text('data2'),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: 100,
-                  // height: 100,
-                  child: Stack(
-                    children: [
-                      Image.asset('assets/images/logo.png'),
-                      const Text('data'),
-                      const SizedBox(
-                        width: 100,
-                      ),
-                      const Positioned(right: 2, child: Text('data2')),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            ListView(
-              shrinkWrap: true,
-              children: [
-                for (var i = 0; i < 16; i++)
-                  Container(
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(62, 82, 158, 154),
-                      borderRadius: BorderRadius.circular(10),
+            for (var i = 0; i < 4; i++)
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 150,
+                    // height: 100,
+                    child: Column(
+                      children: [
+                        Image.asset('assets/images/logo.png'),
+                        const Text('Jak Hardware'),
+                        const Text('20, 000'),
+                        const Text('16/3/2022'),
+                      ],
                     ),
-                    margin: const EdgeInsets.all(10),
-                    child: const ListTile(
-                      leading: Icon(Icons.ac_unit_rounded),
-                      title: Text('Cement'),
-                      subtitle: Text('# 200'),
-                      // trailing: Icon(Icons.edit),
-                      // tileColor: Color.fromARGB(62, 82, 158, 154),
+                  ),
+                  const SizedBox(
+                    width: 40,
+                  ),
+                  SizedBox(
+                    width: 150,
+                    // height: 100,
+                    child: Column(
+                      children: [
+                        Image.asset('assets/images/logo.png'),
+                        const Text('Jak Hardware'),
+                        const Text('20, 000'),
+                        const Text('16/3/2022'),
+                      ],
                     ),
+                  ),
+                  const SizedBox(
+                    height: 150,
                   )
-              ],
-            ),
-            Container(
-              margin: const EdgeInsets.all(10),
-              child: const ListTile(
-                leading: Icon(Icons.ac_unit_rounded),
-                title: Text('Item 1'),
-                subtitle: Text('Description'),
-                trailing: Text('Quantity'),
-                tileColor: Colors.grey,
+                ],
               ),
-            ),
+
+            // ListView(
+            //   shrinkWrap: true,
+            //   children: [
+            //     for (var i = 0; i < 16; i++)
+            //       Container(
+            //         decoration: BoxDecoration(
+            //           color: const Color.fromARGB(62, 82, 158, 154),
+            //           borderRadius: BorderRadius.circular(10),
+            //         ),
+            //         margin: const EdgeInsets.all(10),
+            //         child: const ListTile(
+            //           leading: Icon(Icons.ac_unit_rounded),
+            //           title: Text('Cement'),
+            //           subtitle: Text('# 200'),
+            //           // trailing: Icon(Icons.edit),
+            //           // tileColor: Color.fromARGB(62, 82, 158, 154),
+            //         ),
+            //       )
+            //   ],
+            // ),
+
+            // Container(
+            //   margin: const EdgeInsets.all(10),
+            //   child: const ListTile(
+            //     leading: Icon(Icons.ac_unit_rounded),
+            //     title: Text('Item 1'),
+            //     subtitle: Text('Description'),
+            //     trailing: Text('Quantity'),
+            //     tileColor: Colors.grey,
+            //   ),
+            // ),
             TextButton(
                 onPressed: () => context.go('/'), child: const Text('data'))
           ],

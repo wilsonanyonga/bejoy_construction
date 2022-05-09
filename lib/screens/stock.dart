@@ -1,4 +1,5 @@
 import 'package:bejoy_construction/widgets/menu_widget.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:go_router/go_router.dart';
@@ -57,6 +58,24 @@ class Stock extends StatelessWidget {
                 details: 'Home',
                 icon: Icons.home,
                 routeMe: '/'),
+            // ListTile(
+            //   leading: const Icon(Icons.home),
+            //   title: const Text(
+            //     'Home',
+            //     style: TextStyle(
+            //       fontSize: 20,
+            //       // fontWeight: FontWeight.bold,
+            //       color: Colors.black,
+            //     ),
+            //   ),
+            //   onTap: () => context.go('/')
+
+            //   // context.pop();
+            //   // context.pop();
+            //   // context.go('/');
+            //   // GoRouter(routes: []).pop();
+            //   ,
+            // ),
             NewMethodMenuWidget(
                 context: context,
                 details: 'Stock',
@@ -167,6 +186,8 @@ class Stock extends StatelessWidget {
                 ),
               ),
             ),
+            TextButton(
+                onPressed: () => context.pop(), child: const Text('data')),
             const SizedBox(height: 20),
             ListView(
               shrinkWrap: true,

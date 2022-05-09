@@ -180,8 +180,8 @@ class Tools extends StatelessWidget {
                     margin: const EdgeInsets.all(10),
                     child: const ListTile(
                       leading: Icon(Icons.ac_unit_rounded),
-                      title: Text('Cement'),
-                      subtitle: Text('# 200'),
+                      title: Text('Welding Machines'),
+                      subtitle: Text('# 2'),
                       // trailing: Icon(Icons.edit),
                       // tileColor: Color.fromARGB(62, 82, 158, 154),
                     ),

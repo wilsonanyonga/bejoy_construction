@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:cool_alert/cool_alert.dart';
+
 class RegisterDaily extends StatelessWidget {
   const RegisterDaily({Key? key}) : super(key: key);
 
@@ -129,13 +131,13 @@ class RegisterDaily extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 20),
-            // const Center(
-            //     child: Text('Daily Register',
-            //         style: TextStyle(
-            //           fontSize: 20,
-            //           fontWeight: FontWeight.bold,
-            //           color: Colors.black,
-            //         ))),
+            const Center(
+                child: Text('Date: 8 May 2022',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ))),
             const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
@@ -178,10 +180,23 @@ class RegisterDaily extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     margin: const EdgeInsets.all(10),
-                    child: const ListTile(
-                      leading: Icon(Icons.ac_unit_rounded),
-                      title: Text('Cement'),
-                      subtitle: Text('# 200'),
+                    child: ListTile(
+                      leading: const Icon(Icons.ac_unit_rounded),
+                      title: const Text('Hezron Omollo'),
+                      subtitle: const Text('Mason'),
+                      onTap: () {
+                        CoolAlert.show(
+                          context: context,
+                          type: CoolAlertType.confirm,
+                          text: 'Has Hezron Reported To Work?',
+                          confirmBtnText: 'Yes',
+                          cancelBtnText: 'No',
+                          confirmBtnColor: Colors.green,
+                          // cancelBtnTextStyle:
+                          // const TextStyle(backgroundColor: Colors.red),
+                        );
+                      },
+
                       // trailing: Icon(Icons.edit),
                       // tileColor: Color.fromARGB(62, 82, 158, 154),
                     ),

@@ -43,7 +43,9 @@ dependencies:
   flutter_svg: ^1.0.3
   string_validator: ^0.3.0 #for bool to strings
   flutter_bloc: ^8.0.1 #for bloc state management
-  path_provider: ^2.0.9
+  path_provider: ^2.0.9 #for use with sqflite
+  timelines: ^0.1.0 # for the timelines page
+  cool_alert: ^1.1.0 # for alerts
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

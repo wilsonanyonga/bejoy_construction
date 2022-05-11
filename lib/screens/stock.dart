@@ -106,12 +106,6 @@ class Stock extends StatelessWidget {
                 details: 'Progress Pictures',
                 icon: Icons.picture_in_picture_alt,
                 routeMe: '/pictures'),
-            // const Spacer(),
-            // NewMethodMenuWidget(
-            //     context: context,
-            //     details: 'Materials Use',
-            //     icon: Icons.settings_applications,
-            //     routeMe: '/materials'),
           ],
         ),
       ),

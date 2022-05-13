@@ -56,8 +56,7 @@ class MyApp extends StatelessWidget {
             ),
             GoRoute(
               path: 'stock',
-              builder: (BuildContext context, GoRouterState state) =>
-                  const Stock(),
+              builder: (BuildContext context, GoRouterState state) => Stock(),
             ),
             GoRoute(
               path: 'staff',

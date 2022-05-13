@@ -5,8 +5,9 @@ import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:go_router/go_router.dart';
 
 class Stock extends StatelessWidget {
-  const Stock({Key? key}) : super(key: key);
-
+  Stock({Key? key}) : super(key: key);
+  final myList = List<String>.generate(20, (counter) => "Item $counter");
+  // print(myList);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -183,26 +184,38 @@ class Stock extends StatelessWidget {
             TextButton(
                 onPressed: () => context.pop(), child: const Text('data')),
             const SizedBox(height: 20),
-            ListView(
-              shrinkWrap: true,
-              children: [
-                for (var i = 0; i < 16; i++)
-                  Container(
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(62, 82, 158, 154),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    margin: const EdgeInsets.all(10),
-                    child: const ListTile(
-                      leading: Icon(Icons.ac_unit_rounded),
-                      title: Text('Cement'),
-                      subtitle: Text('# 200'),
-                      // trailing: Icon(Icons.edit),
-                      // tileColor: Color.fromARGB(62, 82, 158, 154),
-                    ),
-                  )
-              ],
-            ),
+            ListView.builder(
+                // shrinkWrap: true,
+                itemCount: myList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListTile(
+                      leading: const Icon(Icons.list),
+                      trailing: const Text(
+                        "GFG",
+                        style: TextStyle(color: Colors.green, fontSize: 15),
+                      ),
+                      title: Text("List item $index"));
+                }),
+            // ListView(
+            //   shrinkWrap: true,
+            //   children: [
+            //     for (var i = 0; i < 16; i++)
+            //       Container(
+            //         decoration: BoxDecoration(
+            //           color: const Color.fromARGB(62, 82, 158, 154),
+            //           borderRadius: BorderRadius.circular(10),
+            //         ),
+            //         margin: const EdgeInsets.all(10),
+            //         child: const ListTile(
+            //           leading: Icon(Icons.ac_unit_rounded),
+            //           title: Text('Cement'),
+            //           subtitle: Text('# 200'),
+            //           // trailing: Icon(Icons.edit),
+            //           // tileColor: Color.fromARGB(62, 82, 158, 154),
+            //         ),
+            //       )
+            //   ],
+            // ),
             Container(
               margin: const EdgeInsets.all(10),
               child: const ListTile(

@@ -58,7 +58,7 @@ class Stock extends StatelessWidget {
                 context: context,
                 details: 'Home',
                 icon: Icons.home,
-                routeMe: '/'),
+                routeMe: '/home'),
             // ListTile(
             //   leading: const Icon(Icons.home),
             //   title: const Text(
@@ -69,13 +69,18 @@ class Stock extends StatelessWidget {
             //       color: Colors.black,
             //     ),
             //   ),
-            //   onTap: () => context.go('/')
-
-            //   // context.pop();
-            //   // context.pop();
-            //   // context.go('/');
-            //   // GoRouter(routes: []).pop();
-            //   ,
+            //   // onTap: () => GoRouter.of(context).go('/'),
+            //   onTap: () {
+            //     if (kDebugMode) {
+            //       print('object tapped');
+            //     }
+            //     context.go('/');
+            //   },
+            // context.pop();
+            // context.pop();
+            // context.go('/');
+            // GoRouter(routes: []).pop();
+            // Navigator.pop(context);
             // ),
             NewMethodMenuWidget(
                 context: context,
@@ -181,20 +186,35 @@ class Stock extends StatelessWidget {
                 ),
               ),
             ),
-            TextButton(
-                onPressed: () => context.pop(), child: const Text('data')),
+            // TextButton(
+            //     onPressed: () => context.pop(), child: const Text('data')),
             const SizedBox(height: 20),
             ListView.builder(
-                // shrinkWrap: true,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: myList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return ListTile(
-                      leading: const Icon(Icons.list),
-                      trailing: const Text(
-                        "GFG",
-                        style: TextStyle(color: Colors.green, fontSize: 15),
-                      ),
-                      title: Text("List item $index"));
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(62, 82, 158, 154),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    margin: const EdgeInsets.all(10),
+                    child: ListTile(
+                      leading: const Icon(Icons.ac_unit_rounded),
+                      title: const Text('Cement'),
+                      subtitle: Text('# $index remaining'),
+                      // trailing: Icon(Icons.edit),
+                      // tileColor: Color.fromARGB(62, 82, 158, 154),
+                    ),
+                  );
+                  // return ListTile(
+                  //     leading: const Icon(Icons.list),
+                  //     trailing: const Text(
+                  //       "GFG",
+                  //       style: TextStyle(color: Colors.green, fontSize: 15),
+                  //     ),
+                  //     title: Text("List item $index"));
                 }),
             // ListView(
             //   shrinkWrap: true,
@@ -216,18 +236,19 @@ class Stock extends StatelessWidget {
             //       )
             //   ],
             // ),
-            Container(
-              margin: const EdgeInsets.all(10),
-              child: const ListTile(
-                leading: Icon(Icons.ac_unit_rounded),
-                title: Text('Item 1'),
-                subtitle: Text('Description'),
-                trailing: Text('Quantity'),
-                tileColor: Colors.grey,
-              ),
-            ),
-            TextButton(
-                onPressed: () => context.go('/'), child: const Text('data'))
+
+            // Container(
+            //   margin: const EdgeInsets.all(10),
+            //   child: const ListTile(
+            //     leading: Icon(Icons.ac_unit_rounded),
+            //     title: Text('Item 1'),
+            //     subtitle: Text('Description'),
+            //     trailing: Text('Quantity'),
+            //     tileColor: Colors.grey,
+            //   ),
+            // ),
+            // TextButton(
+            //     onPressed: () => context.go('/'), child: const Text('data'))
           ],
         ),
       ),

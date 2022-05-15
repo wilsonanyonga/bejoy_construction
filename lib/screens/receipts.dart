@@ -58,7 +58,7 @@ class Receipt extends StatelessWidget {
                 context: context,
                 details: 'Home',
                 icon: Icons.home,
-                routeMe: '/'),
+                routeMe: '/home'),
             NewMethodMenuWidget(
                 context: context,
                 details: 'Stock',
@@ -239,8 +239,8 @@ class Receipt extends StatelessWidget {
             //     tileColor: Colors.grey,
             //   ),
             // ),
-            TextButton(
-                onPressed: () => context.go('/'), child: const Text('data'))
+            // TextButton(
+            //     onPressed: () => context.go('/'), child: const Text('data'))
           ],
         ),
       ),

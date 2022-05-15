@@ -57,7 +57,7 @@ class Pictures extends StatelessWidget {
                 context: context,
                 details: 'Home',
                 icon: Icons.home,
-                routeMe: '/'),
+                routeMe: '/home'),
             NewMethodMenuWidget(
                 context: context,
                 details: 'Stock',
@@ -236,18 +236,18 @@ class Pictures extends StatelessWidget {
             //       )
             //   ],
             // ),
-            Container(
-              margin: const EdgeInsets.all(10),
-              child: const ListTile(
-                leading: Icon(Icons.ac_unit_rounded),
-                title: Text('Item 1'),
-                subtitle: Text('Description'),
-                trailing: Text('Quantity'),
-                tileColor: Colors.grey,
-              ),
-            ),
-            TextButton(
-                onPressed: () => context.go('/'), child: const Text('data'))
+            // Container(
+            //   margin: const EdgeInsets.all(10),
+            //   child: const ListTile(
+            //     leading: Icon(Icons.ac_unit_rounded),
+            //     title: Text('Item 1'),
+            //     subtitle: Text('Description'),
+            //     trailing: Text('Quantity'),
+            //     tileColor: Colors.grey,
+            //   ),
+            // ),
+            // TextButton(
+            //     onPressed: () => context.go('/'), child: const Text('data'))
           ],
         ),
       ),

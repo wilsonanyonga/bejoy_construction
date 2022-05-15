@@ -46,13 +46,12 @@ class MyApp extends StatelessWidget {
     routes: <GoRoute>[
       GoRoute(
           path: '/',
-          builder: (BuildContext context, GoRouterState state) =>
-              const MyHomePage(),
+          builder: (BuildContext context, GoRouterState state) => MyHomePage(),
           routes: [
             GoRoute(
               path: 'home',
               builder: (BuildContext context, GoRouterState state) =>
-                  const MyHomePage(),
+                  MyHomePage(),
             ),
             GoRoute(
               path: 'stock',
@@ -60,8 +59,7 @@ class MyApp extends StatelessWidget {
             ),
             GoRoute(
               path: 'staff',
-              builder: (BuildContext context, GoRouterState state) =>
-                  const Staff(),
+              builder: (BuildContext context, GoRouterState state) => Staff(),
             ),
             GoRoute(
               path: 'receipts',
@@ -128,7 +126,9 @@ class MyHomePage extends StatelessWidget {
 
   final _coun2 = 1;
 
-  const MyHomePage({Key? key}) : super(key: key);
+  var mediaQsize, mediaQheight, mediaQwidth;
+
+  MyHomePage({Key? key}) : super(key: key);
   // void _incrementCounter() {
   //   setState(() {
   //     // This call to setState tells the Flutter framework that something has
@@ -142,6 +142,11 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // getting the size of the window
+    mediaQsize = MediaQuery.of(context).size;
+    mediaQheight = mediaQsize.height;
+    mediaQwidth = mediaQsize.width;
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //

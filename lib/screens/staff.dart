@@ -4,8 +4,8 @@ import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:go_router/go_router.dart';
 
 class Staff extends StatelessWidget {
-  const Staff({Key? key}) : super(key: key);
-
+  Staff({Key? key}) : super(key: key);
+  final myList = List<String>.generate(20, (counter) => "Item $counter");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +56,7 @@ class Staff extends StatelessWidget {
                 context: context,
                 details: 'Home',
                 icon: Icons.home,
-                routeMe: '/'),
+                routeMe: '/home'),
             NewMethodMenuWidget(
                 context: context,
                 details: 'Stock',
@@ -170,6 +170,7 @@ class Staff extends StatelessWidget {
             const SizedBox(height: 20),
             ListView(
               shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               children: [
                 for (var i = 0; i < 16; i++)
                   Container(
@@ -188,18 +189,18 @@ class Staff extends StatelessWidget {
                   )
               ],
             ),
-            Container(
-              margin: const EdgeInsets.all(10),
-              child: const ListTile(
-                leading: Icon(Icons.ac_unit_rounded),
-                title: Text('Item 1'),
-                subtitle: Text('Description'),
-                trailing: Text('Quantity'),
-                tileColor: Colors.grey,
-              ),
-            ),
-            TextButton(
-                onPressed: () => context.go('/'), child: const Text('data'))
+            // Container(
+            //   margin: const EdgeInsets.all(10),
+            //   child: const ListTile(
+            //     leading: Icon(Icons.ac_unit_rounded),
+            //     title: Text('Item 1'),
+            //     subtitle: Text('Description'),
+            //     trailing: Text('Quantity'),
+            //     tileColor: Colors.grey,
+            //   ),
+            // ),
+            // TextButton(
+            //     onPressed: () => context.go('/'), child: const Text('data'))
           ],
         ),
       ),

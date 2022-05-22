@@ -2,13 +2,21 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 class Home extends StatelessWidget {
   final counter;
 
-  const Home(int this.counter, {Key? key}) : super(key: key);
+  var mediaQsize, mediaQheight, mediaQwidth;
+
+  Home(int this.counter, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    mediaQsize = MediaQuery.of(context).size;
+    mediaQheight = mediaQsize.height;
+    mediaQwidth = mediaQsize.width;
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -86,7 +94,7 @@ class Home extends StatelessWidget {
             children: [
               for (var i = 0; i < 3; i++)
                 Container(
-                  width: 100,
+                  width: mediaQwidth * 0.3,
                   // height: 100,
                   // color: Colors.red,
                   padding: const EdgeInsets.all(5),
@@ -124,7 +132,7 @@ class Home extends StatelessWidget {
             children: [
               for (var i = 0; i < 3; i++)
                 Container(
-                  width: 100,
+                  width: mediaQwidth * 0.3,
                   // height: ,
                   padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(

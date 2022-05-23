@@ -13,7 +13,7 @@ class CountMeBloc extends Bloc<CountMeEvent, CountMeState> {
       // final state = this.state as CountMeInitial;
       List<CountLol> stat = <CountLol>[];
       // stat[0] = CountLol(count: 1);
-      stat[0].count = 0;
+      // stat[0].count = 0;
       emit(CountMeLoaded(countState: stat));
     });
 

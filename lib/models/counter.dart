@@ -16,4 +16,10 @@ class CountLol extends Equatable {
   @override
   // TODO: implement props
   List<Object?> get props => [count];
+
+  static List<CountLol> testCount = [
+    CountLol(
+      count: 0,
+    ),
+  ];
 }

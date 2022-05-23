@@ -29,7 +29,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => MultiBlocProvider(
         providers: [
           BlocProvider<CountMeBloc>(
-            create: (context) => CountMeBloc()..add(LoadCounter()),
+            create: (context) => CountMeBloc()
+              ..add(LoadCounter(countEvents: [
+                CountLol(count: 0),
+                CountLol(count: 0),
+              ])),
           ),
         ],
         child: MaterialApp.router(
@@ -285,7 +289,8 @@ class MyHomePage extends StatelessWidget {
             return const CircularProgressIndicator(color: Colors.orange);
           }
           if (state is CountMeLoaded) {
-            return Text('data ${state.countState[0].count}');
+            return Text(
+                'data ${state.countState[0].count} and ${state.countState[1].count}');
             // return Home(state.countState[0].count);
           } else {
             return const Text('error');

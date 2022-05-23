@@ -8,18 +8,18 @@ abstract class CountMeEvent extends Equatable {
 }
 
 class LoadCounter extends CountMeEvent {
-  // final CountLol countEvent;
+  final List<CountLol> countEvents;
 
-  // const LoadCounter(this.countEvent);
+  const LoadCounter({required this.countEvents});
 
-  // @override
-  // List<Object> get props => [countEvent];
+  @override
+  List<Object> get props => [countEvents];
 }
 
 class AddCounter extends CountMeEvent {
   final CountLol countEvent;
 
-  AddCounter({required this.countEvent});
+  const AddCounter({required this.countEvent});
 
   @override
   List<Object> get props => [countEvent];

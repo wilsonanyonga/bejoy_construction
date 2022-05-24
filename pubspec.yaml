@@ -43,7 +43,7 @@ dependencies:
   flutter_svg: ^1.0.3
   string_validator: ^0.3.0 #for bool to strings
 
-  bloc: ^8.0.3 #for bloc
+  # bloc: ^8.0.3 #for bloc
   flutter_bloc: ^8.0.1 #for bloc state management
   equatable: ^2.0.3 #used with flutter bloc
 

@@ -9,7 +9,7 @@ abstract class CountMeEvent extends Equatable {
 
 class LoadCounter extends CountMeEvent {
   final List<CountLol> countEvents;
-
+  // <CountLol>[]
   const LoadCounter({required this.countEvents});
 
   @override

@@ -19,7 +19,7 @@ class CountLol extends Equatable {
 
   static List<CountLol> testCount = [
     CountLol(
-      count: 0,
+      count: 1,
     ),
   ];
 }

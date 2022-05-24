@@ -28,13 +28,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MultiBlocProvider(
         providers: [
-          BlocProvider<CountMeBloc>(
-            create: (context) => CountMeBloc()
-              ..add(LoadCounter(countEvents: [
-                CountLol(count: 0),
-                CountLol(count: 0),
-              ])),
-          ),
+          BlocProvider(create: (context) => CountMeBloc()
+              // ..add(LoadCounter(countEvents: [
+              //   CountLol(count: 2),
+              // ])),
+              ),
         ],
         child: MaterialApp.router(
           routeInformationParser: _router.routeInformationParser,
@@ -290,7 +288,7 @@ class MyHomePage extends StatelessWidget {
           }
           if (state is CountMeLoaded) {
             return Text(
-                'data ${state.countState[0].count} and ${state.countState[1].count}');
+                'data ${state.countState2[0].count} and ${state.countState2.length} and ${CountLol.testCount[0].count}');
             // return Home(state.countState[0].count);
           } else {
             return const Text('error');
@@ -300,6 +298,8 @@ class MyHomePage extends StatelessWidget {
       floatingActionButton: BlocListener<CountMeBloc, CountMeState>(
         listener: (context, state) {
           // TODO: implement listener
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text('content ad')));
         },
         child: FloatingActionButton(
           onPressed: () {

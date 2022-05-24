@@ -8,32 +8,32 @@ abstract class CountMeState extends Equatable {
 }
 
 class CountMeInitial extends CountMeState {
-  // final List<CountLol> countState;
+  final List<CountLol> countState1;
 
-  // const CountMeInitial(this.countState);
+  const CountMeInitial({required this.countState1});
 
-  // @override
-  // List<Object> get props => [countState];
+  @override
+  List<Object> get props => [countState1];
 }
 
 class CountMeLoaded extends CountMeState {
-  // List<CountLol> countState;
+  final List<CountLol> countState2;
 
-  List<CountLol> countState = <CountLol>[];
+  // List<CountLol> countState = <CountLol>[];
 
-  CountMeLoaded({required this.countState});
+  const CountMeLoaded({required this.countState2});
 
   @override
-  List<Object> get props => [countState];
+  List<Object> get props => [countState2[0].count];
 }
 
 class CountMeAdd extends CountMeState {
-  final List<CountLol> countState;
+  final List<CountLol> countState3;
 
-  const CountMeAdd({required this.countState});
+  const CountMeAdd({required this.countState3});
 
   @override
-  List<Object> get props => [countState];
+  List<Object> get props => [countState3];
 }
 
 class CountMeSub extends CountMeState {}

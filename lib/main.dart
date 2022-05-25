@@ -279,39 +279,44 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
-      // body: Home(_counter),
-      body: BlocBuilder<CountMeBloc, CountMeState>(
-        builder: (context, state) {
-          // return Home(state.count[]);
-          if (state is CountMeInitial) {
-            return const CircularProgressIndicator(color: Colors.orange);
-          }
-          if (state is CountMeLoaded) {
-            return Text(
-                'data ${state.countState2[0].count} and ${state.countState2.length} and ${CountLol.testCount[0].count}');
-            // return Home(state.countState[0].count);
-          } else {
-            return const Text('error');
-          }
-        },
+      body: Home(),
+      // body: BlocBuilder<CountMeBloc, CountMeState>(
+      //   builder: (context, state) {
+      //     // return Home(state.count[]);
+      //     if (state is CountMeInitial) {
+      //       return const CircularProgressIndicator(color: Colors.orange);
+      //     }
+      //     if (state is CountMeLoaded) {
+      //       return Text(
+      //           'data ${state.countState2[0].count} and ${state.countState2.length} and ${CountLol.testCount[0].count}');
+      //       // return Home(state.countState[0].count);
+      //     } else {
+      //       return const Text('error');
+      //     }
+      //   },
+      // ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
       ),
-      floatingActionButton: BlocListener<CountMeBloc, CountMeState>(
-        listener: (context, state) {
-          // TODO: implement listener
-          ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text('content ad')));
-        },
-        child: FloatingActionButton(
-          onPressed: () {
-            var numIncrement = CountLol(count: 1);
-            context
-                .read<CountMeBloc>()
-                .add(AddCounter(countEvent: numIncrement));
-          },
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // floatingActionButton: BlocListener<CountMeBloc, CountMeState>(
+      //   listener: (context, state) {
+      //     // TODO: implement listener
+      //     ScaffoldMessenger.of(context)
+      //         .showSnackBar(const SnackBar(content: Text('content ad')));
+      //   },
+      //   child: FloatingActionButton(
+      //     onPressed: () {
+      //       var numIncrement = CountLol(count: 1);
+      //       context
+      //           .read<CountMeBloc>()
+      //           .add(AddCounter(countEvent: numIncrement));
+      //     },
+      //     tooltip: 'Increment',
+      //     child: const Icon(Icons.add),
+      //   ),
+      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

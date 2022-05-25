@@ -9,7 +9,7 @@ class Home extends StatelessWidget {
 
   var mediaQsize, mediaQheight, mediaQwidth;
 
-  Home(int this.counter, {Key? key}) : super(key: key);
+  Home({Key? key, this.counter}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

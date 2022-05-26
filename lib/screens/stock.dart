@@ -201,10 +201,13 @@ class Stock extends StatelessWidget {
                     ),
                     margin: const EdgeInsets.all(10),
                     child: ListTile(
+                      onTap: () {
+                        context.go('/stock/update');
+                      },
                       leading: const Icon(Icons.ac_unit_rounded),
                       title: const Text('Cement'),
                       subtitle: Text('# $index remaining'),
-                      // trailing: Icon(Icons.edit),
+                      trailing: const Icon(Icons.edit),
                       // tileColor: Color.fromARGB(62, 82, 158, 154),
                     ),
                   );
@@ -251,6 +254,14 @@ class Stock extends StatelessWidget {
             //     onPressed: () => context.go('/'), child: const Text('data'))
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Navigator.pushNamed(context, '/add_project');
+          context.go('/stock/add');
+        },
+        tooltip: 'Add Stock Item',
+        child: const Icon(Icons.add),
       ),
     );
   }

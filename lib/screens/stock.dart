@@ -202,7 +202,7 @@ class Stock extends StatelessWidget {
                     margin: const EdgeInsets.all(10),
                     child: ListTile(
                       onTap: () {
-                        context.go('/stock/update');
+                        context.go('/stock/update?id=${myList[index]}');
                       },
                       leading: const Icon(Icons.ac_unit_rounded),
                       title: const Text('Cement'),

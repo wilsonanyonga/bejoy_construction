@@ -7,6 +7,8 @@ import 'package:bejoy_construction/screens/pictures.dart';
 import 'package:bejoy_construction/screens/receipts.dart';
 import 'package:bejoy_construction/screens/staff.dart';
 import 'package:bejoy_construction/screens/stock.dart';
+import 'package:bejoy_construction/screens/stock_add.dart';
+import 'package:bejoy_construction/screens/stock_update.dart';
 import 'package:bejoy_construction/screens/tools.dart';
 import 'package:bejoy_construction/widgets/menu_widget.dart';
 import 'package:flutter/material.dart';
@@ -67,6 +69,18 @@ class MyApp extends StatelessWidget {
             GoRoute(
               path: 'stock',
               builder: (BuildContext context, GoRouterState state) => Stock(),
+              routes: [
+                GoRoute(
+                  path: 'add',
+                  builder: (BuildContext context, GoRouterState state) =>
+                      const StockAdd(),
+                ),
+                GoRoute(
+                  path: 'update',
+                  builder: (BuildContext context, GoRouterState state) =>
+                      const StockUpdate(),
+                ),
+              ],
             ),
             GoRoute(
               path: 'staff',

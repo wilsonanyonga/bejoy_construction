@@ -76,10 +76,11 @@ class MyApp extends StatelessWidget {
                       const StockAdd(),
                 ),
                 GoRoute(
-                  path: 'update',
-                  builder: (BuildContext context, GoRouterState state) =>
-                      const StockUpdate(),
-                ),
+                    path: 'update',
+                    builder: (BuildContext context, GoRouterState state) {
+                      // int id = state.queryParams['id'] as int; // may be null
+                      return const StockUpdate();
+                    }),
               ],
             ),
             GoRoute(

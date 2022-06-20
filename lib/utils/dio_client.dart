@@ -11,7 +11,8 @@ import 'package:bejoy_construction/utils/logging.dart';
 class DioClient {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: 'https://go.khostess.co.ke/api',
+      // baseUrl: 'https://go.khostess.co.ke/api',
+      baseUrl: 'http://127.0.0.1:8001/api',
       connectTimeout: 5000,
       receiveTimeout: 3000,
     ),

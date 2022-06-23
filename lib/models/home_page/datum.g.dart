@@ -8,28 +8,26 @@ part of 'datum.dart';
 
 Datum _$DatumFromJson(Map<String, dynamic> json) => Datum(
       id: json['id'] as int,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
-      deletedAt: json['deletedAt'],
-      datumId: json['datumId'] as int,
-      projectId: json['projectId'] as int,
-      materialsName: json['materialsName'] as String,
-      datumCreatedAt: DateTime.parse(json['datumCreatedAt'] as String),
-      datumUpdatedAt: DateTime.parse(json['datumUpdatedAt'] as String),
-      materials: (json['materials'] as List<dynamic>)
+      createdAt: DateTime.parse(json['CreatedAt'] as String),
+      updatedAt: DateTime.parse(json['UpdatedAt'] as String),
+      deletedAt: json['DeletedAt'],
+      projectId: json['project_id'] as int?,
+      materialsName: json['materials_name'] as String,
+      datumCreatedAt: DateTime.parse(json['created_at'] as String),
+      datumUpdatedAt: DateTime.parse(json['updated_at'] as String),
+      materials: (json['Materials'] as List<dynamic>)
           .map((e) => Material.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$DatumToJson(Datum instance) => <String, dynamic>{
       'id': instance.id,
-      'createdAt': instance.createdAt.toIso8601String(),
-      'updatedAt': instance.updatedAt.toIso8601String(),
-      'deletedAt': instance.deletedAt,
-      'datumId': instance.datumId,
-      'projectId': instance.projectId,
-      'materialsName': instance.materialsName,
-      'datumCreatedAt': instance.datumCreatedAt.toIso8601String(),
-      'datumUpdatedAt': instance.datumUpdatedAt.toIso8601String(),
-      'materials': instance.materials,
+      'CreatedAt': instance.createdAt.toIso8601String(),
+      'UpdatedAt': instance.updatedAt.toIso8601String(),
+      'DeletedAt': instance.deletedAt,
+      'project_id': instance.projectId,
+      'materials_name': instance.materialsName,
+      'created_at': instance.datumCreatedAt.toIso8601String(),
+      'updated_at': instance.datumUpdatedAt.toIso8601String(),
+      'Materials': instance.materials,
     };

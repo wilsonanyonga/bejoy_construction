@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_const
 
+import 'package:bejoy_construction/utils/dio_client.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,13 +10,20 @@ class Home extends StatelessWidget {
 
   var mediaQsize, mediaQheight, mediaQwidth;
 
+  final DioClient _client = DioClient();
+
   Home({Key? key, this.counter}) : super(key: key);
+
+  // final DioClient _client = DioClient();
 
   @override
   Widget build(BuildContext context) {
     mediaQsize = MediaQuery.of(context).size;
     mediaQheight = mediaQsize.height;
     mediaQwidth = mediaQsize.width;
+
+    // final names = _client.getUser(id: '1');
+    _client.getUser(id: '1');
 
     return SingleChildScrollView(
       child: Column(

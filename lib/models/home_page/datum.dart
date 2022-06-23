@@ -6,29 +6,35 @@ part 'datum.g.dart';
 
 @JsonSerializable()
 class Datum {
+  int id;
+  @JsonKey(name: 'CreatedAt')
+  DateTime createdAt;
+  @JsonKey(name: 'UpdatedAt')
+  DateTime updatedAt;
+  @JsonKey(name: 'DeletedAt')
+  dynamic deletedAt;
+  @JsonKey(name: 'project_id')
+  int? projectId;
+  @JsonKey(name: 'materials_name')
+  String materialsName;
+  @JsonKey(name: 'created_at')
+  DateTime datumCreatedAt;
+  @JsonKey(name: 'updated_at')
+  DateTime datumUpdatedAt;
+  @JsonKey(name: 'Materials')
+  List<Material> materials;
+
   Datum({
     required this.id,
     required this.createdAt,
     required this.updatedAt,
     required this.deletedAt,
-    required this.datumId,
     required this.projectId,
     required this.materialsName,
     required this.datumCreatedAt,
     required this.datumUpdatedAt,
     required this.materials,
   });
-
-  int id;
-  DateTime createdAt;
-  DateTime updatedAt;
-  dynamic deletedAt;
-  int datumId;
-  int projectId;
-  String materialsName;
-  DateTime datumCreatedAt;
-  DateTime datumUpdatedAt;
-  List<Material> materials;
 
   factory Datum.fromJson(Map<String, dynamic> json) => _$DatumFromJson(json);
 

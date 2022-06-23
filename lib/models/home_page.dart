@@ -33,13 +33,13 @@ part 'home_page.g.dart';
 // }
 
 class HomePage {
+  List<Datum> data;
+  int status;
+
   HomePage({
     required this.data,
     required this.status,
   });
-
-  List<Datum> data;
-  int status;
 
   factory HomePage.fromJson(Map<String, dynamic> json) =>
       _$HomePageFromJson(json);

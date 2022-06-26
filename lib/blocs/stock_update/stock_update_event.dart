@@ -6,3 +6,11 @@ abstract class StockUpdateEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class LoadApiEvent extends StockUpdateEvent {
+  // @override
+  // ignore: todo
+  // // TODO: implement props
+  // List<Object?> get props => throw UnimplementedError();
+
+}

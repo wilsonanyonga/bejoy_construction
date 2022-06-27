@@ -1,4 +1,5 @@
 import 'package:bejoy_construction/blocs/count_me/count_me_bloc.dart';
+import 'package:bejoy_construction/blocs/stock_update/stock_update_bloc.dart';
 import 'package:bejoy_construction/models/counter.dart';
 import 'package:bejoy_construction/screens/daily_register.dart';
 import 'package:bejoy_construction/screens/home.dart';
@@ -10,6 +11,7 @@ import 'package:bejoy_construction/screens/stock.dart';
 import 'package:bejoy_construction/screens/stock_add.dart';
 import 'package:bejoy_construction/screens/stock_update.dart';
 import 'package:bejoy_construction/screens/tools.dart';
+import 'package:bejoy_construction/utils/dio_client.dart';
 import 'package:bejoy_construction/widgets/menu_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -28,9 +30,9 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) => MultiBlocProvider(
+  Widget build(BuildContext context) => MultiRepositoryProvider(
         providers: [
-          BlocProvider(create: (context) => CountMeBloc()
+          RepositoryProvider(create: (context) => DioClient()
               // ..add(LoadCounter(countEvents: [
               //   CountLol(count: 2),
               // ])),

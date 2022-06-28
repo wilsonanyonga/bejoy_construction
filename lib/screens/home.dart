@@ -22,7 +22,6 @@ class Home extends StatelessWidget {
     mediaQsize = MediaQuery.of(context).size;
     mediaQheight = mediaQsize.height;
     mediaQwidth = mediaQsize.width;
-    var stockAmount = 0;
 
     // final names = _client.getUser(id: '1');
 
@@ -200,21 +199,27 @@ class Home extends StatelessWidget {
                       child: ListView.builder(
                           itemCount: state.data.length,
                           itemBuilder: (BuildContext context, int index) {
+                            var tot = 0;
+                            for (var i = 0;
+                                i < state.data[index].materials.length;
+                                i++) {
+                              tot += state.data[index].materials[i].amount;
+                            }
                             return ListTile(
                               leading: const Icon(Icons.abc_outlined),
                               // ${state.data[index].materials[index].amount}
                               title: Column(
                                 children: [
                                   Text(
-                                      "list is ${state.data[index].materialsName} sum is "),
+                                      "list is ${state.data[index].materialsName} sum is ${tot.toString()}"),
                                   // for (var i = 0; i < state.data[index].materials.length; i++)
                                   //   stockAmount += state.data[index].materials[i].amount,
-
-                                  for (var i = 0;
-                                      i < state.data[index].materials.length;
-                                      i++)
-                                    Text(
-                                        "${state.data[index].materials[i].amount}")
+                                  // Text(tot.toString()),
+                                  // for (var i = 0;
+                                  //     i < state.data[index].materials.length;
+                                  //     i++)
+                                  //   Text(
+                                  //       "${state.data[index].materials[i].amount}")
                                 ],
                               ),
                             );

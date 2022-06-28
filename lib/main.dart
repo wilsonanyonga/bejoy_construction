@@ -65,8 +65,8 @@ class MyApp extends StatelessWidget {
           routes: [
             GoRoute(
               path: 'home',
-              builder: (BuildContext context, GoRouterState state) =>
-                  MyHomePage(),
+              // builder: (BuildContext context, GoRouterState state) => MyHomePage(),
+              redirect: (_) => '/',
             ),
             GoRoute(
               path: 'stock',

@@ -103,84 +103,150 @@ class Home extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                for (var i = 0; i < 3; i++)
-                  Container(
-                    width: mediaQwidth * 0.3,
-                    // height: 100,
-                    // color: Colors.red,
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.red[400],
-                    ),
-                    child: Column(
-                      children: const [
-                        SizedBox(height: 15),
-                        Text(
-                          '1',
-                          style: TextStyle(
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+            BlocBuilder<StockUpdateBloc, StockUpdateState>(
+                builder: (context, state) {
+              if (state is StockUpdateLoadingInitial) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              if (state is StockHomePageState) {
+                return SizedBox(
+                  height: mediaQheight * 0.64,
+                  width: mediaQwidth * 0.9,
+                  child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                              maxCrossAxisExtent: 150,
+                              childAspectRatio: 1.5,
+                              crossAxisSpacing: 20,
+                              mainAxisSpacing: 20),
+                      itemCount: state.data.length,
+                      itemBuilder: (BuildContext ctx, index) {
+                        var tot = 0;
+                        for (var i = 0;
+                            i < state.data[index].materials.length;
+                            i++) {
+                          tot += state.data[index].materials[i].amount;
+                        }
+                        return Container(
+                          alignment: Alignment.center,
+                          child: Column(
+                            // mainAxisAlignment: MainAxisAlignment.start,
+                            // crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const SizedBox(height: 15),
+                              Text(
+                                tot.toString(),
+                                style: const TextStyle(
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Text(
+                                state.data[index].materialsName,
+                                style: const TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        Text(
-                          'Cement',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-              ],
-            ),
+                          decoration: BoxDecoration(
+                              color: (tot <= 10)
+                                  ? Colors.red
+                                  : (tot > 10 && tot < 20)
+                                      ? Colors.amber
+                                      : const Color.fromARGB(255, 94, 221, 100),
+                              borderRadius: BorderRadius.circular(15)),
+                        );
+                      }),
+                );
+              }
+
+              return const Text('data did not work');
+            }),
             const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                for (var i = 0; i < 3; i++)
-                  Container(
-                    width: mediaQwidth * 0.3,
-                    // height: ,
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.blue[200],
-                    ),
-                    // color: Colors.red,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: const [
-                          SizedBox(height: 15),
-                          Text(
-                            '2500',
-                            style: TextStyle(
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                          Text(
-                            'Gypsum Boards (1 kg) fgsfgs fd dfsg sdf g',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                          SizedBox(height: 15),
-                        ],
-                      ),
-                    ),
-                  ),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     for (var i = 0; i < 3; i++)
+            //       Container(
+            //         width: mediaQwidth * 0.3,
+            //         // height: 100,
+            //         // color: Colors.red,
+            //         padding: const EdgeInsets.all(5),
+            //         decoration: BoxDecoration(
+            //           borderRadius: BorderRadius.circular(10),
+            //           color: Colors.red[400],
+            //         ),
+            //         child: Column(
+            //           children: const [
+            //             SizedBox(height: 15),
+            //             Text(
+            //               '1',
+            //               style: TextStyle(
+            //                 fontSize: 40,
+            //                 fontWeight: FontWeight.bold,
+            //                 color: Colors.black,
+            //               ),
+            //             ),
+            //             Text(
+            //               'Cement',
+            //               style: TextStyle(
+            //                 fontSize: 15,
+            //                 fontWeight: FontWeight.bold,
+            //                 color: Colors.black,
+            //               ),
+            //             ),
+            //           ],
+            //         ),
+            //       ),
+            //   ],
+            // ),
+            // const SizedBox(height: 20),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     for (var i = 0; i < 3; i++)
+            //       Container(
+            //         width: mediaQwidth * 0.3,
+            //         // height: ,
+            //         padding: const EdgeInsets.all(5),
+            //         decoration: BoxDecoration(
+            //           borderRadius: BorderRadius.circular(10),
+            //           color: Colors.blue[200],
+            //         ),
+            //         // color: Colors.red,
+            //         child: SingleChildScrollView(
+            //           child: Column(
+            //             children: const [
+            //               SizedBox(height: 15),
+            //               Text(
+            //                 '2500',
+            //                 style: TextStyle(
+            //                   fontSize: 40,
+            //                   fontWeight: FontWeight.bold,
+            //                   color: Colors.black,
+            //                 ),
+            //               ),
+            //               Text(
+            //                 'Gypsum Boards (1 kg) fgsfgs fd dfsg sdf g',
+            //                 style: TextStyle(
+            //                   fontSize: 15,
+            //                   fontWeight: FontWeight.bold,
+            //                   color: Colors.black,
+            //                 ),
+            //               ),
+            //               SizedBox(height: 15),
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //   ],
+            // ),
             const Text('data'),
             BlocBuilder<StockUpdateBloc, StockUpdateState>(
                 builder: (context, state) {

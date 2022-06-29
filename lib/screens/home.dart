@@ -141,7 +141,7 @@ class Home extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 40,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                                  color: Colors.black87,
                                 ),
                               ),
                               Text(
@@ -156,7 +156,7 @@ class Home extends StatelessWidget {
                           ),
                           decoration: BoxDecoration(
                               color: (tot <= 10)
-                                  ? Colors.red
+                                  ? const Color.fromARGB(255, 238, 60, 60)
                                   : (tot > 10 && tot < 20)
                                       ? Colors.amber
                                       : const Color.fromARGB(255, 94, 221, 100),

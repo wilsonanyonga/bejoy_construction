@@ -132,8 +132,6 @@ class Home extends StatelessWidget {
                         return Container(
                           alignment: Alignment.center,
                           child: Column(
-                            // mainAxisAlignment: MainAxisAlignment.start,
-                            // crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               const SizedBox(height: 15),
                               Text(

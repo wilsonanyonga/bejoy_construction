@@ -1,6 +1,7 @@
 import 'package:bejoy_construction/blocs/count_me/count_me_bloc.dart';
 import 'package:bejoy_construction/blocs/stock_update/stock_update_bloc.dart';
 import 'package:bejoy_construction/models/counter.dart';
+import 'package:bejoy_construction/models/hive/project_display.dart';
 import 'package:bejoy_construction/screens/daily_register.dart';
 import 'package:bejoy_construction/screens/home.dart';
 import 'package:bejoy_construction/screens/material_use.dart';
@@ -13,12 +14,33 @@ import 'package:bejoy_construction/screens/stock_update.dart';
 import 'package:bejoy_construction/screens/tools.dart';
 import 'package:bejoy_construction/utils/dio_client.dart';
 import 'package:bejoy_construction/widgets/menu_widget.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+// import 'package:hive';
 
-void main() {
+late Box box;
+Future<void> main() async {
+  await Hive.initFlutter();
+  box = await Hive.openBox('box');
+
+  Hive.registerAdapter(ProjectDisplayAdapter());
+  // ProjectDisplay projId = box.get('mainProject');
+  // if (kDebugMode) {
+  //   print(projId.myId);
+  // }
+  box.put('mainProject', ProjectDisplay(myId: 1));
+  // if (projId.myId == null) {
+  //   box.put('mainProject', ProjectDisplay(myId: 1));
+  // }
+  ProjectDisplay projId2 = box.get('mainProject');
+  if (kDebugMode) {
+    print(projId2.myId);
+  }
   runApp(MyApp());
 }
 

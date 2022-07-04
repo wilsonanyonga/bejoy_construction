@@ -25,21 +25,53 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 late Box box;
 Future<void> main() async {
-  await Hive.initFlutter();
-  box = await Hive.openBox('box');
+  // await Hive.initFlutter();
+  // box = await Hive.openBox('box');
 
-  Hive.registerAdapter(ProjectDisplayAdapter());
+  // try {
+  //   await Hive.initFlutter();
+  //   box = await Hive.openBox('box');
+  //   Hive.registerAdapter(ProjectDisplayAdapter());
+  //   ProjectDisplay projId2 = box.get('mainProject');
+  //   if (kDebugMode) {
+  //     print("lol is");
+  //     print(projId2.myId);
+  //   }
+  // } catch (e) {
+  //   if (kDebugMode) {
+  //     print(e);
+  //   }
+  // }
+
+  // Hive.registerAdapter(ProjectDisplayAdapter());
+
   // ProjectDisplay projId = box.get('mainProject');
   // if (kDebugMode) {
   //   print(projId.myId);
   // }
-  box.put('mainProject', ProjectDisplay(myId: 1));
+
+  // box.put('mainProject', ProjectDisplay(myId: 1));
+
   // if (projId.myId == null) {
   //   box.put('mainProject', ProjectDisplay(myId: 1));
   // }
-  ProjectDisplay projId2 = box.get('mainProject');
+  // try {
+  //   ProjectDisplay projId2 = box.get('mainProject');
+  //   if (kDebugMode) {
+  //     print("lol is");
+  //     print(projId2.myId);
+  //   }
+  // } catch (e) {
+  //   box.put('mainProject', ProjectDisplay(myId: 1));
+  //   if (kDebugMode) {
+  //     print("lol is $e");
+  //     ProjectDisplay projId2 = box.get('mainProject');
+  //   }
+  // }
+  // ProjectDisplay projId2 = box.get('mainProject');
   if (kDebugMode) {
-    print(projId2.myId);
+    print("lol is done");
+    // print(projId2.myId);
   }
   runApp(MyApp());
 }

@@ -13,7 +13,8 @@ class Home extends StatelessWidget {
 
   final DioClient _client = DioClient();
 
-  Home({Key? key, this.counter}) : super(key: key);
+  // Home({Key? key, this.counter}) : super(key: key);
+  Home(this.counter, {Key? key}) : super(key: key);
 
   // final DioClient _client = DioClient();
 

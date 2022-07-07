@@ -351,7 +351,7 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: Home(1),
+      body: Home(1, jo: "er"),
       // body: BlocBuilder<CountMeBloc, CountMeState>(
       //   builder: (context, state) {
       //     // return Home(state.count[]);

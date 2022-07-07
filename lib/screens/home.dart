@@ -7,14 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Home extends StatelessWidget {
-  final counter;
-
+  final int counter;
+  // String jo;
   var mediaQsize, mediaQheight, mediaQwidth;
 
   final DioClient _client = DioClient();
 
+  String jo;
+
   // Home({Key? key, this.counter}) : super(key: key);
-  Home(this.counter, {Key? key}) : super(key: key);
+  Home(this.counter, {Key? key, required this.jo}) : super(key: key);
 
   // final DioClient _client = DioClient();
 

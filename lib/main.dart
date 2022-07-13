@@ -23,7 +23,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 // import 'package:hive';
 
-late Box box;
+// late Box box;
 Future<void> main() async {
   // await Hive.initFlutter();
   // box = await Hive.openBox('box');
@@ -68,11 +68,13 @@ Future<void> main() async {
   //     ProjectDisplay projId2 = box.get('mainProject');
   //   }
   // }
+
   // ProjectDisplay projId2 = box.get('mainProject');
-  if (kDebugMode) {
-    print("lol is done");
-    // print(projId2.myId);
-  }
+  // if (kDebugMode) {
+  //   print("lol is done");
+  //   print(projId2.myId);
+  // }
+
   runApp(MyApp());
 }
 

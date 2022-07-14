@@ -1,4 +1,5 @@
 import 'package:bejoy_construction/models/home_page.dart';
+import 'package:bejoy_construction/models/project.dart';
 import 'package:cross_file/src/types/interface.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -50,6 +51,40 @@ class DioClient {
     }
 
     return user;
+  }
+
+  // get projects that are in progress
+  Future<Project?> getProject() async {
+    Project? project;
+
+    try {
+      Response userData = await _dio.get('/projects');
+
+      if (kDebugMode) {
+        print('User Info: ${userData.data}');
+      }
+
+      project = Project.fromJson(userData.data);
+    } on DioError catch (e) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx and is also not 304.
+      if (e.response != null) {
+        if (kDebugMode) {
+          print('Dio error!');
+          print('STATUS: ${e.response?.statusCode}');
+          print('DATA: ${e.response?.data}');
+          print('HEADERS: ${e.response?.headers}');
+        }
+      } else {
+        // Error due to setting up or sending the request
+        if (kDebugMode) {
+          print('Error sending request!');
+          print(e.message);
+        }
+      }
+    }
+
+    return project;
   }
 
   // Future<GetAll2?> getUsers() async {

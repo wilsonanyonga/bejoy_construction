@@ -21,3 +21,8 @@ class LoadHiveInitial extends StockUpdateEvent {
   // @override
   // List<Object> get props => [];
 }
+
+class LoadProjects extends StockUpdateEvent {
+  // @override
+  // List<Object> get props => [];
+}

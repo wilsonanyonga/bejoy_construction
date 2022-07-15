@@ -34,8 +34,8 @@ class Home extends StatelessWidget {
       create: (context) => StockUpdateBloc(
         RepositoryProvider.of<DioClient>(context),
       )
-        ..add(LoadHiveInitial())
-        ..add(LoadApiEvent()),
+        ..add(LoadApiEvent())
+        ..add(LoadProjects()),
       child: SingleChildScrollView(
         child: Column(
           children: [

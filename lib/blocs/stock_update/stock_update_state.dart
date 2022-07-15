@@ -22,3 +22,15 @@ class StockHomePageState extends StockUpdateState {
   // TODO: implement props
   List<Object> get props => [data, status];
 }
+
+// updating state for projects menu
+class ProjectsPageState extends StockUpdateState {
+  final List<DatumProject> data;
+  final int status;
+  // var amount = [] ;
+
+  const ProjectsPageState(this.data, this.status);
+  @override
+  // TODO: implement props
+  List<Object> get props => [data, status];
+}

@@ -15,12 +15,15 @@ class StockUpdateLoadingInitial extends StockUpdateState {
 class StockHomePageState extends StockUpdateState {
   final List<Datum> data;
   final int status;
+
+  final List<DatumProject> dataP;
+  final int statusP;
   // var amount = [] ;
 
-  const StockHomePageState(this.data, this.status);
+  const StockHomePageState(this.data, this.status, this.dataP, this.statusP);
   @override
   // TODO: implement props
-  List<Object> get props => [data, status];
+  List<Object> get props => [data, status, dataP, statusP];
 }
 
 // updating state for projects menu

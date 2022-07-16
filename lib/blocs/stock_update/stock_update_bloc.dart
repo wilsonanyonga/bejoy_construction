@@ -30,6 +30,8 @@ class StockUpdateBloc extends Bloc<StockUpdateEvent, StockUpdateState> {
       // }
 
       final activity = await _client.getUser(id: '1');
+
+      final projects = await _client.getProject();
       // final activity = await _client.getUser(id: projId2.myId.toString());
 
       // mat = activity.data[materialsName];
@@ -42,7 +44,8 @@ class StockUpdateBloc extends Bloc<StockUpdateEvent, StockUpdateState> {
       // if (kDebugMode) {
       //   print(total);
       // }
-      emit(StockHomePageState(activity!.data, activity.status));
+      emit(StockHomePageState(
+          activity!.data, activity.status, projects!.data, projects.status));
     });
 
     // loading projects in progress

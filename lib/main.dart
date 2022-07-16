@@ -335,16 +335,38 @@ class MyHomePage extends StatelessWidget {
               ),
               child: Text('Bejoy Projects'),
             ),
-            NewMethodMenuWidget(
-                context: context,
-                details: 'GLUK',
-                icon: Icons.home,
-                routeMe: '/stock'),
-            NewMethodMenuWidget(
-                context: context,
-                details: 'Oloitoktok',
-                icon: Icons.home,
-                routeMe: '/stock'),
+            BlocProvider(
+              create: (context) =>
+                  StockUpdateBloc(RepositoryProvider.of<DioClient>(context))
+                    ..add(LoadProjects()),
+              child: BlocBuilder<StockUpdateBloc, StockUpdateState>(
+                builder: (context, state) {
+                  if (state is ProjectsPageState) {
+                    return Column(
+                      children: [
+                        for (var i = 0; i < state.data.length; i++)
+                          NewMethodMenuWidget(
+                              context: context,
+                              details: state.data[i].name,
+                              icon: Icons.home,
+                              routeMe: '/stock'),
+                        // NewMethodMenuWidget(
+                        //     context: context,
+                        //     details: 'GLUK',
+                        //     icon: Icons.home,
+                        //     routeMe: '/stock'),
+                        // NewMethodMenuWidget(
+                        //     context: context,
+                        //     details: 'Oloitoktok',
+                        //     icon: Icons.home,
+                        //     routeMe: '/stock'),
+                      ],
+                    );
+                  }
+                  return const Text("data lol");
+                },
+              ),
+            ),
             NewMethodMenuWidget(
                 context: context,
                 details: 'Add Project',

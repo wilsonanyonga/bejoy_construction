@@ -33,9 +33,7 @@ class Home extends StatelessWidget {
     return BlocProvider(
       create: (context) => StockUpdateBloc(
         RepositoryProvider.of<DioClient>(context),
-      )
-        ..add(LoadApiEvent())
-        ..add(LoadProjects()),
+      )..add(LoadApiEvent()),
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -81,13 +79,25 @@ class Home extends StatelessWidget {
               // ),
             ),
             const SizedBox(height: 20),
-            const Text(
-              'Project Name: GLUK',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
+            BlocBuilder<StockUpdateBloc, StockUpdateState>(
+              builder: (context, state) {
+                if (state is StockUpdateLoadingInitial) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                if (state is StockHomePageState) {
+                  return Text(
+                    'Project Name: ${state.dataP[0].name}',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  );
+                }
+                return const Text("data not present");
+              },
             ),
             const SizedBox(height: 20),
             const Text(
